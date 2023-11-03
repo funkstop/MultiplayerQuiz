@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplayer Quiz Game</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+  <script src="client.js"></script>
+</head>
+<body>
+  <h1>Multiplayer Quiz Game</h1>
+
+  <div id="question"></div>
+  <input type="text" id="answer">
+  <button type="submit">Submit Answer</button>
+
+  <script>
+    // Connect to the server
+    const socket = io('http://localhost:3000');
+
+    // Listen for new questions
+    socket.on('question', (question) => {
+      document.getElementById('question').innerHTML = question;
+    });
+
+    // Submit the player's answer
+    document.querySelector('button').addEventListener('click', () => {
+      const answer = document.getElementById('answer').value;
+
+      // Emit the answer to the server
+      socket.emit('answer', answer);
+    });
+  </script>
+</body>
+</html>

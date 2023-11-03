@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1>Quiz Game</h1>
+        <div id="quiz-container">
+            <div id="question" class="question"></div>
+            <div id="answers" class="answers"></div>
+        </div>
+        <button id="startButton" onClick="startGame()">Start Game</button>
+        <div id="scoreboard" class="scoreboard">
+            <h2>Scoreboard</h2>
+            <div id="players" class="players"></div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
